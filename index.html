@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Project M</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <canvas id='mainCanvas'></canvas>
-        <canvas id='interfaceCanvas'></canvas>
-        <script src="src/index.js"></script>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Project M</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="src/styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <canvas id="mainCanvas"></canvas>
+        <canvas id="interfaceCanvas"></canvas>
+    </div>
+    <div class="assets">
+        <img id="grassImg" src="./src/assets/grass.png">
+        <img id="wallImg" src="./src/assets/wall.png">
+    </div>
+    <script defer src="src/index.js"></script>
+</body>
 </html>

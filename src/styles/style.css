@@ -1,0 +1,15 @@
+body {
+  margin: 0px;
+}
+.container {
+  position: relative;
+}
+#mainCanvas,
+#interfaceCanvas {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.assets {
+  display: none;
+}
