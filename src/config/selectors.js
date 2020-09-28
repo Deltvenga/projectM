@@ -3,4 +3,5 @@ export const selectors = {
   interfaceCanvas: "#interfaceCanvas",
   wallImg: "#wallImg",
   grassImg: "#grassImg",
+  characterImg: "#characterImg",
 };

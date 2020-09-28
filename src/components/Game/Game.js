@@ -1,7 +1,9 @@
 import { getAdjustedCeilSize } from "../../helpers/getAdjustedCeilSize";
 import { getCeilImgId } from "../../helpers/getCeilImgId";
+import { selectors } from "../../config/selectors";
 export class Game {
-  constructor(mainCanvasId, iterfaceCanvasId, map) {
+  constructor(character, mainCanvasId, iterfaceCanvasId, map) {
+    this.character = character;
     this.mainCanvas = document.querySelector(mainCanvasId);
     this.iterfaceCanvasId = document.querySelector(iterfaceCanvasId);
     this.settings = {
@@ -12,13 +14,17 @@ export class Game {
   }
   init() {
     this.setCeilSize();
-    this.drawMap();
+    this.draw();
   }
   setCeilSize() {
     this.settings.ceilSize = getAdjustedCeilSize(
       this.mainCanvas,
       this.settings.numDisplayedCeils
     );
+  }
+  draw() {
+    this.drawMap();
+    this.drawCharacter();
   }
   drawMap() {
     const ctx = this.mainCanvas.getContext("2d");
@@ -34,5 +40,17 @@ export class Game {
         );
       });
     });
+  }
+  drawCharacter() {
+    const ctx = this.mainCanvas.getContext("2d");
+    const { width, height } = this.character.getSize();
+    const { posX, posY } = this.character.getCoords();
+    ctx.drawImage(
+      document.querySelector(selectors.characterImg),
+      posX,
+      posY,
+      width,
+      height
+    );
   }
 }
