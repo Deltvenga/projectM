@@ -14,7 +14,7 @@ export class Game {
   }
   init() {
     this.setCeilSize();
-    this.draw();
+    this.gameLoop();
   }
   setCeilSize() {
     this.settings.ceilSize = getAdjustedCeilSize(
@@ -22,9 +22,13 @@ export class Game {
       this.settings.numDisplayedCeils
     );
   }
-  draw() {
-    this.drawMap();
-    this.drawCharacter();
+  gameLoop() {
+    const gameLoop = function () {
+      this.drawMap();
+      this.drawCharacter();
+      window.requestAnimationFrame(gameLoop);
+    }.bind(this);
+    window.requestAnimationFrame(gameLoop);
   }
   drawMap() {
     const ctx = this.mainCanvas.getContext("2d");
@@ -42,6 +46,7 @@ export class Game {
     });
   }
   drawCharacter() {
+    console.log("1231");
     const ctx = this.mainCanvas.getContext("2d");
     const { width, height } = this.character.getSize();
     const { posX, posY } = this.character.getCoords();
