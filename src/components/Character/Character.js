@@ -1,6 +1,14 @@
 export class Character {
   constructor() {
     document.addEventListener("keydown", this.handleKeyboardEvents.bind(this));
+    document.addEventListener(
+      "contextmenu",
+      function (e) {
+        console.log(e);
+        e.preventDefault();
+        this.handleMouseEvents(e);
+      }.bind(this)
+    );
   }
   size = {
     width: 50,
@@ -57,5 +65,10 @@ export class Character {
       : shouldMoveRight(key)
       ? moveRight()
       : null;
+  }
+  handleMouseEvents(e) {
+    console.log(e);
+    const clickPos = { posX: e.clientX, posY: e.clientY };
+    console.log(clickPos);
   }
 }

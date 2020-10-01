@@ -49,7 +49,6 @@ export class Game {
     const ctx = this.mainCanvas.getContext("2d");
     const { width, height } = this.character.getSize();
     const { posX, posY } = this.character.getCoords();
-
     ctx.drawImage(
       document.querySelector(selectors.characterImg),
       posX,
