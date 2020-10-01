@@ -46,10 +46,10 @@ export class Game {
     });
   }
   drawCharacter() {
-    console.log("1231");
     const ctx = this.mainCanvas.getContext("2d");
     const { width, height } = this.character.getSize();
     const { posX, posY } = this.character.getCoords();
+
     ctx.drawImage(
       document.querySelector(selectors.characterImg),
       posX,
