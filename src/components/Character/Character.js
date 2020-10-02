@@ -67,8 +67,13 @@ export class Character {
       : null;
   }
   handleMouseEvents(e) {
-    console.log(e);
     const clickPos = { posX: e.clientX, posY: e.clientY };
-    console.log(clickPos);
+    const deleteSmallerNum = (num1, num2) =>
+      num1 > num2 ? num1 - num2 : num2 - num1;
+    let difInXCoords = deleteSmallerNum(clickPos.posX, this.coords.posX);
+    let difInYCoords = deleteSmallerNum(clickPos.posY, this.coords.posY);
+    let pathLength = Math.sqrt(
+      Math.pow(difInXCoords, 2) + Math.pow(difInYCoords, 2)
+    );
   }
 }
