@@ -15,7 +15,7 @@ export class Character {
     height: 50,
   };
   stats = {
-    speed: 10,
+    speed: 25,
   };
   coords = {
     posX: 100,
@@ -68,12 +68,31 @@ export class Character {
   }
   handleMouseEvents(e) {
     const clickPos = { posX: e.clientX, posY: e.clientY };
-    const deleteSmallerNum = (num1, num2) =>
-      num1 > num2 ? num1 - num2 : num2 - num1;
-    let difInXCoords = deleteSmallerNum(clickPos.posX, this.coords.posX);
-    let difInYCoords = deleteSmallerNum(clickPos.posY, this.coords.posY);
+    const isCurrentPosXbigger = this.coords.posX > clickPos.posX;
+    const isCurrentPosYbigger = this.coords.posY > clickPos.posY;
+    let difInXCoords = isCurrentPosXbigger
+      ? this.coords.posX - clickPos.posX
+      : clickPos.posX - this.coords.posX;
+    let difInYCoords = isCurrentPosYbigger
+      ? this.coords.posY - clickPos.posY
+      : clickPos.posY - this.coords.posY;
     let pathLength = Math.sqrt(
       Math.pow(difInXCoords, 2) + Math.pow(difInYCoords, 2)
     );
+    let numSteps = pathLength / this.stats.speed;
+    let stepX = difInXCoords / numSteps;
+    let stepY = difInYCoords / numSteps;
+    let count = 0;
+    while (count <= numSteps) {
+      setTimeout(() => {
+        isCurrentPosXbigger
+          ? (this.coords.posX -= stepX)
+          : (this.coords.posX += stepX);
+        isCurrentPosYbigger
+          ? (this.coords.posY -= stepY)
+          : (this.coords.posY += stepY);
+      }, count * 10);
+      count++;
+    }
   }
 }
