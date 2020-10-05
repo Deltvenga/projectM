@@ -2,10 +2,10 @@ import { getAdjustedCeilSize } from "../../helpers/getAdjustedCeilSize";
 import { getCeilImgId } from "../../helpers/getCeilImgId";
 import { selectors } from "../../config/selectors";
 export class Game {
-  constructor(character, mainCanvasId, iterfaceCanvasId, map) {
+  constructor(character, mainCanvasId, interfaceCanvasId, map) {
     this.character = character;
     this.mainCanvas = document.querySelector(mainCanvasId);
-    this.iterfaceCanvasId = document.querySelector(iterfaceCanvasId);
+    this.interfaceCanvasId = document.querySelector(interfaceCanvasId);
     this.settings = {
       ceilSize: { width: null, height: null },
       numDisplayedCeils: 10,

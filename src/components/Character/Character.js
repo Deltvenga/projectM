@@ -42,20 +42,16 @@ export class Character {
       key.toLowerCase() === "ы";
     const shouldMoveLeft = (key) =>
       key === "ArrowLeft" ||
-      key.toLowerCase() === "s" ||
-      key.toLowerCase() === "ы";
+      key.toLowerCase() === "ф" ||
+      key.toLowerCase() === "a";
     const shouldMoveRight = (key) =>
       key === "ArrowRight" ||
       key.toLowerCase() === "d" ||
       key.toLowerCase() === "в";
-    const moveUp = () => (this.coords.posY -= this.stats.speed);
-    const moveDown = () => (this.coords.posY += this.stats.speed);
-    const moveLeft = () => (this.coords.posX -= this.stats.speed);
-    const moveRight = () => (this.coords.posX += this.stats.speed);
-    console.log(shouldMoveDown);
-    console.log(shouldMoveUp);
-    console.log(shouldMoveLeft);
-    console.log(shouldMoveRight);
+    const moveUp = () => (this.coords.posY -= 1);
+    const moveDown = () => (this.coords.posY += 1);
+    const moveLeft = () => (this.coords.posX -= 1);
+    const moveRight = () => (this.coords.posX += 1);
     shouldMoveUp(key)
       ? moveUp()
       : shouldMoveDown(key)
