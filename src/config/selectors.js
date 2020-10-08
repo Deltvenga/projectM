@@ -4,4 +4,5 @@ export const selectors = {
   wallImg: "#wallImg",
   grassImg: "#grassImg",
   characterImg: "#characterImg",
+  basicEnemyImg: "#basicEnemyImg",
 };

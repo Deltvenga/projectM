@@ -9,18 +9,18 @@ export class Character {
         this.handleMouseEvents(e);
       }.bind(this)
     );
+    this.size = {
+      width: 50,
+      height: 50,
+    };
+    this.stats = {
+      speed: 25,
+    };
+    this.coords = {
+      posX: 100,
+      posY: 100,
+    };
   }
-  size = {
-    width: 50,
-    height: 50,
-  };
-  stats = {
-    speed: 25,
-  };
-  coords = {
-    posX: 100,
-    posY: 100,
-  };
   getCoords() {
     return this.coords;
   }
