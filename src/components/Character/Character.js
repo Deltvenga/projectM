@@ -14,21 +14,13 @@ export class Character {
       height: 50,
     };
     this.stats = {
+      name: "Player",
       speed: 25,
     };
     this.coords = {
       posX: 100,
       posY: 100,
     };
-  }
-  getCoords() {
-    return this.coords;
-  }
-  getStats() {
-    return this.stats;
-  }
-  getSize() {
-    return this.size;
   }
   handleKeyboardEvents(event) {
     const { key } = event;
