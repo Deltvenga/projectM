@@ -16,6 +16,7 @@ export class Game {
       numDisplayedCeils: 10,
     };
     this.map = map;
+    this.charactersCeil = {};
     this.enemyList = [];
   }
   init() {
@@ -40,8 +41,8 @@ export class Game {
     const gameLoop = function () {
       this.clearCanvas();
       this.drawMap();
-      this.drawCharacter();
       this.drawEnemies();
+      this.drawCharacter();
       window.requestAnimationFrame(gameLoop);
     }.bind(this);
     window.requestAnimationFrame(gameLoop);
@@ -51,7 +52,12 @@ export class Game {
   }
   drawMap() {
     const { width, height } = this.settings.ceilSize;
-    this.map.map((row, rowIndex) => {
+    const { posX, posY } = getCoords.call(this.character);
+    let visibleMap = this.map
+      .filter((row, rowIndex) => rowIndex < 10)
+      .map((ceil) => ceil.filter((ceil, ceilIndex) => ceilIndex < 10));
+    console.log(visibleMap);
+    visibleMap.map((row, rowIndex) => {
       row.map((ceil, ceilIndex) => {
         this.draw(
           getCeilImgId(ceil),
